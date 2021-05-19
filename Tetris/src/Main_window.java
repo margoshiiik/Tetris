@@ -268,7 +268,18 @@ public class Main_window extends javax.swing.JFrame {
     }
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Game_window game = new Game_window();
+        JFrame forGame = new JFrame();
+        forGame.setSize(445,640);
+        game.setSize(445, 629);
+        forGame.addMouseMotionListener(game);
+        forGame.setTitle("Play your best!");
+        forGame.addMouseListener(game);
+        forGame.addKeyListener(game);
+        forGame.add(game);
+        forGame.setVisible(true);
+        forGame.setLocationRelativeTo(null);
+        game.startGame();
     }
 
     private void jButtonSpeedActionPerformed(java.awt.event.ActionEvent evt) {
