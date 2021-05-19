@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * @author annet
@@ -15,8 +22,8 @@ public class Main_window extends javax.swing.JFrame {
      */
     public Main_window() {
         initComponents();
-
         this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -28,6 +35,15 @@ public class Main_window extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
+        BufferedImage crystal = null;
+        try {
+            crystal = ImageIO.read(new File("D:\\ideaProjects\\Tetris_game\\Tetris\\Tetris\\src\\crystal.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
         jPanel1 = new javax.swing.JPanel();
         jLabelСloseMouseClicked = new javax.swing.JLabel();
         jLabelMinMouseClicked = new javax.swing.JLabel();
@@ -35,7 +51,7 @@ public class Main_window extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelMaximumScore = new javax.swing.JLabel();
         maximumScore = new javax.swing.JLabel();
-        maximumScore1 = new javax.swing.JLabel();
+        maximumScore1 = new javax.swing.JLabel(new ImageIcon(crystal));
         maximumScore2 = new javax.swing.JLabel();
         jButtonStart = new javax.swing.JButton();
         jButtonSpeed = new javax.swing.JButton();
@@ -108,9 +124,12 @@ public class Main_window extends javax.swing.JFrame {
         maximumScore.setForeground(new java.awt.Color(255, 255, 255));
         maximumScore.setText("0");
 
-        maximumScore1.setFont(new java.awt.Font("Sitka Display", 0, 28)); // NOI18N
+
+
+        maximumScore1.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
         maximumScore1.setForeground(new java.awt.Color(255, 255, 255));
-        maximumScore1.setText("Cr: ");
+
+
 
         maximumScore2.setFont(new java.awt.Font("Sitka Display", 0, 28)); // NOI18N
         maximumScore2.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,7 +199,10 @@ public class Main_window extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel1)
                                 .addGap(81, 81, 81))
+
         );
+
+
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -234,7 +256,6 @@ public class Main_window extends javax.swing.JFrame {
                                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
         pack();
     }// </editor-fold>
 
