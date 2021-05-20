@@ -203,6 +203,9 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
         g.drawString("SCORE", Window.WIDTH - 125, Window.HEIGHT/2);
         g.drawString(score+"", Window.WIDTH - 125, Window.HEIGHT/2 + 30);
+        
+        Graphics2D scoreSum = (Graphics2D)g;
+        scoreSum.drawString("Score: " + score,315, 300);
 
         Graphics2D g2d = (Graphics2D)g;
 
