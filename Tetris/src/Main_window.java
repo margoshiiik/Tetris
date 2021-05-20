@@ -283,7 +283,10 @@ public class Main_window extends javax.swing.JFrame {
     }
 
     private void jButtonSpeedActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Speed_window speedWindow = new Speed_window();
+        speedWindow.setVisible(true);
+        speedWindow.pack();
+        speedWindow.setLocationRelativeTo(null);
     }
 
     private void jButtonShopActionPerformed(java.awt.event.ActionEvent evt) {
