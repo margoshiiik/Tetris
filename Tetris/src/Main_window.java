@@ -36,12 +36,7 @@ public class Main_window extends javax.swing.JFrame {
     private void initComponents() {
 
         BufferedImage crystal = null;
-        try {
-            crystal = ImageIO.read(new File("D:\\ideaProjects\\Tetris_game\\Tetris\\Tetris\\src\\crystal.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        crystal = ImageLoader.loadImage("crystal.png");
 
 
         jPanel1 = new javax.swing.JPanel();
