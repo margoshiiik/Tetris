@@ -1,13 +1,19 @@
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Game_window extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
 
     private static final long serialVersionUID = 1L;
 
-    private BufferedImage blocks, background, pause, refresh;
+    private BufferedImage blocks, background, pause, refresh, crystal;
 
     //board dimensions (the playing area)
 
@@ -51,6 +57,12 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
     // buttons press lapse
 
+    private int currentScore;
+
+    private int lineQuantity = 0;
+
+    private JFrame frame;
+
 
     private Timer buttonLapse = new Timer(300, new ActionListener(){
 
@@ -64,15 +76,18 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     private int score = 0;
 
 
-    public Game_window(){
+    public Game_window(JFrame frame){
         blocks = ImageLoader.loadImage("tiles.png");
 
         background = ImageLoader.loadImage("background.jpg");
         pause = ImageLoader.loadImage("pause.png");
         refresh = ImageLoader.loadImage("refresh.png");
+        crystal = ImageLoader.loadImage("crystal.png");
 
         mouseX = 0;
         mouseY = 0;
+
+        this.frame = frame;
 
         stopBounds = new Rectangle(350, 500, pause.getWidth(), pause.getHeight() + pause.getHeight()/2);
         refreshBounds = new Rectangle(350, 500 - refresh.getHeight() - 20,refresh.getWidth(),
@@ -119,6 +134,8 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         }, blocks.getSubimage(blockSize*6, 0, blockSize, blockSize), this, 7);
 
     }
+
+
 
     private void update(){
         if(stopBounds.contains(mouseX, mouseY) && leftClick && !buttonLapse.isRunning() && !gameOver)
@@ -183,19 +200,34 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
             g.drawImage(refresh, refreshBounds.x, refreshBounds.y, null);
 
 
-        if(gamePaused)
+      /*  if(gamePaused)
         {
             String gamePausedString = "GAME PAUSED";
             g.setColor(Color.WHITE);
             g.setFont(new Font("Georgia", Font.BOLD, 30));
             g.drawString(gamePausedString, 35, Window.HEIGHT/2);
-        }
+        }*/
         if(gameOver)
         {
-            String gameOverString = "GAME OVER";
-            g.setColor(Color.WHITE);
-            g.setFont(new Font("Georgia", Font.BOLD, 30));
-            g.drawString(gameOverString, 50, Window.HEIGHT/2);
+
+            this.getFrame().setVisible(false);
+            this.setVisible(false);
+
+            int s = getScore();
+
+            if (s>currentScore){
+                saveScore(s-1);
+
+                Record_window rec = new Record_window();
+                rec.setLocationRelativeTo(null);
+                rec.setVisible(true);
+            }
+            else {
+                Lose_window lose = new Lose_window();
+                lose.setLocationRelativeTo(null);
+                lose.setVisible(true);
+            }
+
         }
         g.setColor(Color.WHITE);
 
@@ -203,14 +235,23 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
         g.drawString("SCORE", Window.WIDTH - 125, Window.HEIGHT/2);
         g.drawString(score+"", Window.WIDTH - 125, Window.HEIGHT/2 + 30);
-        
+
         Graphics2D scoreSum = (Graphics2D)g;
         scoreSum.drawString("Score: " + score,315, 300);
 
         Graphics2D g2d = (Graphics2D)g;
 
+
+        Graphics2D linesSum = (Graphics2D)g;
+        linesSum.drawString(": " + lineQuantity,355, 350);
+
+
         g2d.setStroke(new BasicStroke(2));
-        g2d.setColor(new Color(0, 0, 0, 100));
+        g2d.setColor(new Color(82, 5, 5, 248));
+
+        Graphics2D lines = (Graphics2D)g;
+        lines.drawImage(ImageLoader.loadImage("crystal.png"), 315, 320, 40,40, null);
+
 
         for(int i = 0; i <= boardHeight; i++)
         {
@@ -225,6 +266,15 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     public void setNextShape(){
         int index = (int)(Math.random()*shapes.length);
         nextShape = new Shape(shapes[index].getCoords(), shapes[index].getBlock(), this, shapes[index].getColor());
+    }
+
+    private void saveScore(int score) {
+        File newFile = new File("D:/Score.txt");
+        try (BufferedWriter writter = new BufferedWriter(new FileWriter(newFile))) {
+            writter.write(String.valueOf(score));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setCurrentShape(){
@@ -244,6 +294,8 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         }
 
     }
+
+
 
 
     public int[][] getBoard(){
@@ -282,6 +334,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     }
     public void stopGame(){
         score = 0;
+        lineQuantity =0;
 
         for(int row = 0; row < board.length; row++)
         {
@@ -348,4 +401,24 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         score ++;
     }
 
+    public void addLines(){
+        lineQuantity++;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getCurrentScore() {
+        return currentScore;
+    }
+
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
 }
+
