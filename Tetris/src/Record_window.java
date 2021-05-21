@@ -1,6 +1,9 @@
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -16,6 +19,7 @@ import javax.swing.ImageIcon;
  */
 public class Record_window extends javax.swing.JFrame {
 
+
     /**
      * Creates new form Record_window
      */
@@ -23,11 +27,7 @@ public class Record_window extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         BufferedImage victory = null;
-        try {
-            victory = ImageIO.read(new File("D:\\ideaProjects\\Tetris_game\\Tetris\\Tetris\\src\\victory.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        victory = ImageLoader.loadImage("victory.png");
         imageNewScore.setIcon(new ImageIcon(victory));
 
     }
@@ -126,11 +126,11 @@ public class Record_window extends javax.swing.JFrame {
 
         JLabelNewScore.setFont(new java.awt.Font("Sitka Display", 0, 24)); // NOI18N
         JLabelNewScore.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelNewScore.setText("You set new maximum score");
+        JLabelNewScore.setText("You set new maximum score: ");
 
         newScoreValue.setFont(new java.awt.Font("Sitka Display", 0, 24)); // NOI18N
         newScoreValue.setForeground(new java.awt.Color(255, 255, 255));
-        newScoreValue.setText("0");
+        newScoreValue.setText(getCurrentScore());
 
         imageNewScore.setFont(new java.awt.Font("Sitka Display", 0, 24)); // NOI18N
         imageNewScore.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,10 +220,13 @@ public class Record_window extends javax.swing.JFrame {
 
     private void jButtonBackToMenuMouseClicked(java.awt.event.MouseEvent evt) {
         this.dispose();
+        Main_window main_window = new Main_window();
+        main_window.setLocationRelativeTo(null);
+        main_window.setVisible(true);
     }
 
     private void jButtonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        this.setVisible(false);
     }
 
     /**
@@ -260,6 +263,17 @@ public class Record_window extends javax.swing.JFrame {
             }
         });
     }
+
+    private String getCurrentScore() {
+        String currentScore = "";
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/Score.txt"))) {
+            currentScore = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         return currentScore;
+    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JLabel JLabelNewScore;
