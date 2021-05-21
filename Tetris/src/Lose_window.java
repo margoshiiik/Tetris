@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,11 +24,7 @@ public class Lose_window extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         BufferedImage victory = null;
-        try {
-            victory = ImageIO.read(new File("D:\\ideaProjects\\Tetris_game\\Tetris\\Tetris\\src\\lose.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        victory = ImageLoader.loadImage("lose.png");
         imageNewScore.setIcon(new ImageIcon(victory));
     }
 
@@ -219,7 +215,10 @@ public class Lose_window extends javax.swing.JFrame {
     }
 
     private void jButtonBackToMenuMouseClicked(java.awt.event.MouseEvent evt) {
-        this.dispose();
+        this.setVisible(false);
+        Main_window main_window = new Main_window();
+        main_window.setLocationRelativeTo(null);
+        main_window.setVisible(true);
     }
 
     private void jButtonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,4 +274,3 @@ public class Lose_window extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     // End of variables declaration
 }
-
