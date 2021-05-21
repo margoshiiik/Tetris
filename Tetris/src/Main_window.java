@@ -8,14 +8,17 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  *
  * @author annet
  */
 public class Main_window extends javax.swing.JFrame {
+
+    private int maximumScoreInt;
 
     /**
      * Creates new form Test_JFrame
@@ -117,7 +120,7 @@ public class Main_window extends javax.swing.JFrame {
 
         maximumScore.setFont(new java.awt.Font("Sitka Display", 0, 28)); // NOI18N
         maximumScore.setForeground(new java.awt.Color(255, 255, 255));
-        maximumScore.setText("0");
+        maximumScore.setText(getCurrentMaximumScore());
 
 
 
@@ -263,10 +266,13 @@ public class Main_window extends javax.swing.JFrame {
     }
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {
-        Game_window game = new Game_window();
+
+
         JFrame forGame = new JFrame();
+        Game_window game = new Game_window(forGame);
         forGame.setSize(445,640);
         game.setSize(445, 629);
+        game.setCurrentScore(Integer.valueOf(maximumScore.getText()));
         forGame.addMouseMotionListener(game);
         forGame.setTitle("Play your best!");
         forGame.addMouseListener(game);
@@ -274,7 +280,11 @@ public class Main_window extends javax.swing.JFrame {
         forGame.add(game);
         forGame.setVisible(true);
         forGame.setLocationRelativeTo(null);
+        this.setVisible(false);
+        game.setVisible(true);
         game.startGame();
+
+
     }
 
     private void jButtonSpeedActionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,6 +340,24 @@ public class Main_window extends javax.swing.JFrame {
                 new Main_window().setVisible(true);
             }
         });
+    }
+
+    public JLabel getMaximumScore() {
+        return maximumScore;
+    }
+
+    public void setMaximumScore(String s) {
+        maximumScore.setText(s);
+    }
+
+    String getCurrentMaximumScore() {
+        String maximum = "";
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/Score.txt"))) {
+            maximum = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return maximum;
     }
 
     // Variables declaration - do not modify
