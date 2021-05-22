@@ -270,7 +270,7 @@ public class Speed_window extends javax.swing.JFrame {
     }
 
     private void saveSpeed(String currentSpeed){
-        File newFile = new File("D://ideaProjects//Tetris_game//Tetris//Tetris//src//Current speed.txt");
+        File newFile = new File("D:/tetris_info/Current speed.txt");
         try (BufferedWriter writter = new BufferedWriter(new FileWriter(newFile))) {
             writter.write(currentSpeed);
         } catch (IOException e) {
@@ -280,7 +280,7 @@ public class Speed_window extends javax.swing.JFrame {
 
     private void getCurrentSpeed(){
         String currentSpeed = "";
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D://ideaProjects//Tetris_game//Tetris//Tetris//src//Current speed.txt"))) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/tetris_info/Current speed.txt"))) {
             currentSpeed = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();

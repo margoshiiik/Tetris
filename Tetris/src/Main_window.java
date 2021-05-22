@@ -41,7 +41,6 @@ public class Main_window extends javax.swing.JFrame {
         BufferedImage crystal = null;
         crystal = ImageLoader.loadImage("crystal.png");
 
-
         jPanel1 = new javax.swing.JPanel();
         jLabelСloseMouseClicked = new javax.swing.JLabel();
         jLabelMinMouseClicked = new javax.swing.JLabel();
@@ -352,7 +351,7 @@ public class Main_window extends javax.swing.JFrame {
 
     String getCurrentMaximumScore() {
         String maximum = "";
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/Score.txt"))) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/tetris_info/Score.txt"))) {
             maximum = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
