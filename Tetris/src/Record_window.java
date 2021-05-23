@@ -266,7 +266,7 @@ public class Record_window extends javax.swing.JFrame {
 
     private String getCurrentScore() {
         String currentScore = "";
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/Score.txt"))) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/tetris_info/Score.txt"))) {
             currentScore = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
