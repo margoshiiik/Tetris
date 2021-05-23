@@ -1,19 +1,18 @@
-import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Game_window extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
 
     private static final long serialVersionUID = 1L;
 
-    private BufferedImage blocks, background, pause, refresh, crystal;
+    private BufferedImage blocks, background, pause, refresh, crystal, music, toMenu;
 
     //board dimensions (the playing area)
 
@@ -24,6 +23,8 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     private final int blockSize = 30;
 
     // field
+
+    private Clip clip;
 
     private int[][] board = new int[boardHeight][boardWidth];
 
@@ -49,7 +50,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
     private boolean leftClick = false;
 
-    private Rectangle stopBounds, refreshBounds;
+    private Rectangle stopBounds, refreshBounds, musicBounds, backToMenu;
 
     private boolean gamePaused = false;
 
@@ -62,6 +63,10 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     private int lineQuantity = 0;
 
     private JFrame frame;
+
+    private boolean isMusicPlaying;
+
+    private boolean isTrue = true;
 
 
     private Timer buttonLapse = new Timer(300, new ActionListener(){
@@ -79,19 +84,26 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     public Game_window(JFrame frame){
         blocks = ImageLoader.loadImage("tiles.png");
 
+        music = ImageLoader.loadImage("compact-disc.png");
+
         background = ImageLoader.loadImage("background.jpg");
         pause = ImageLoader.loadImage("pause.png");
         refresh = ImageLoader.loadImage("refresh.png");
         crystal = ImageLoader.loadImage("crystal.png");
+        toMenu = ImageLoader.loadImage("home.png");
+
 
         mouseX = 0;
         mouseY = 0;
 
         this.frame = frame;
 
-        stopBounds = new Rectangle(350, 500, pause.getWidth(), pause.getHeight() + pause.getHeight()/2);
-        refreshBounds = new Rectangle(350, 500 - refresh.getHeight() - 20,refresh.getWidth(),
-                refresh.getHeight() + refresh.getHeight()/2);
+        stopBounds = new Rectangle(325, 450, 70, 70);
+        refreshBounds = new Rectangle(325, 450 - refresh.getHeight() - 20,70, 90);
+
+        musicBounds = new Rectangle(410, 450 - refresh.getHeight() - 20, 70, 90);
+
+        backToMenu = new Rectangle(410, 450, 90, 90);
 
         // create game looper
 
@@ -144,8 +156,32 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
             gamePaused = !gamePaused;
         }
 
-        if(refreshBounds.contains(mouseX, mouseY) && leftClick)
+        if(refreshBounds.contains(mouseX, mouseY) && leftClick ){
+            getClip().close();
             startGame();
+        }
+
+
+        if(musicBounds.contains(mouseX,mouseY) && leftClick){
+            getClip().stop();
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        if(musicBounds.contains(mouseX,mouseY) && leftClick && !isMusicPlaying){
+            playMusic();
+        }
+
+        if(backToMenu.contains(mouseX,mouseY) && leftClick && isTrue){
+            getClip().close();
+
+            this.getFrame().setVisible(false);
+            this.setVisible(false);
+
+            isTrue = false;
+                Main_window main_window = new Main_window();
+                main_window.setLocationRelativeTo(null);
+                main_window.setVisible(true);
+        }
 
         if(gamePaused || gameOver)
         {
@@ -199,17 +235,24 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         else
             g.drawImage(refresh, refreshBounds.x, refreshBounds.y, null);
 
+        if(musicBounds.contains(mouseX, mouseY))
+            g.drawImage(music.getScaledInstance(music.getWidth() + 3, music.getHeight() + 3, BufferedImage.SCALE_DEFAULT)
+                    , musicBounds.x + 3, musicBounds.y + 3, null);
+        else
+            g.drawImage(music, musicBounds.x, musicBounds.y, null);
 
-      /*  if(gamePaused)
-        {
-            String gamePausedString = "GAME PAUSED";
-            g.setColor(Color.WHITE);
-            g.setFont(new Font("Georgia", Font.BOLD, 30));
-            g.drawString(gamePausedString, 35, Window.HEIGHT/2);
-        }*/
+        if(backToMenu.contains(mouseX, mouseY))
+            g.drawImage(toMenu.getScaledInstance(toMenu.getWidth() + 3, toMenu.getHeight() + 3, BufferedImage.SCALE_DEFAULT)
+                    , backToMenu.x + 3, backToMenu.y + 3, null);
+        else
+            g.drawImage(toMenu, backToMenu.x, backToMenu.y, null);
+
+
+
         if(gameOver)
         {
-
+            saveCrystals();
+            getClip().close();
             this.getFrame().setVisible(false);
             this.setVisible(false);
 
@@ -269,7 +312,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     }
 
     private void saveScore(int score) {
-        File newFile = new File("D:/Score.txt");
+        File newFile = new File("D:/tetris_info/Score.txt");
         try (BufferedWriter writter = new BufferedWriter(new FileWriter(newFile))) {
             writter.write(String.valueOf(score));
         } catch (IOException e) {
@@ -330,8 +373,9 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         setCurrentShape();
         gameOver = false;
         looper.start();
-
+        playMusic();
     }
+
     public void stopGame(){
         score = 0;
         lineQuantity =0;
@@ -420,5 +464,60 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     public JFrame getFrame() {
         return frame;
     }
+
+    public int getLineQuantity() {
+        return lineQuantity;
+    }
+
+    public void playMusic() {
+        try {
+            File soundFile = new File("D:/tetris_info/Queen.wav");
+
+            AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+
+            clip = AudioSystem.getClip();
+
+            clip.open(ais);
+
+            clip.setFramePosition(0);
+            clip.start();
+
+        } catch (IOException  exc) {
+            exc.printStackTrace();
+        } catch (UnsupportedAudioFileException exc) {
+            exc.printStackTrace();
+        } catch (LineUnavailableException exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public Clip getClip() {
+        return clip;
+    }
+
+    private int getCrystals() {
+        String cr = "";
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/tetris_info/HowManyCrystals.txt"))) {
+            cr = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Integer.valueOf(cr);
+    }
+
+    private void saveCrystals() {
+        int i = getCrystals();
+        int a = getLineQuantity();
+        int wr = i+a;
+        File newFile = new File("D:/tetris_info/HowManyCrystals.txt");
+        try (BufferedWriter writter = new BufferedWriter(new FileWriter(newFile))) {
+            writter.write(String.valueOf(wr));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
+
 
