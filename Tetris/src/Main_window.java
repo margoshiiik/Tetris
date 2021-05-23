@@ -5,6 +5,7 @@
  */
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,6 +20,8 @@ import java.nio.file.Paths;
 public class Main_window extends javax.swing.JFrame {
 
     private int maximumScoreInt;
+
+    private Clip clip;
 
     /**
      * Creates new form Test_JFrame
@@ -130,7 +133,7 @@ public class Main_window extends javax.swing.JFrame {
 
         maximumScore2.setFont(new java.awt.Font("Sitka Display", 0, 28)); // NOI18N
         maximumScore2.setForeground(new java.awt.Color(255, 255, 255));
-        maximumScore2.setText("0");
+        maximumScore2.setText(getCrystals());
 
         jButtonStart.setBackground(new java.awt.Color(255, 0, 102));
         jButtonStart.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
@@ -269,7 +272,7 @@ public class Main_window extends javax.swing.JFrame {
 
         JFrame forGame = new JFrame();
         Game_window game = new Game_window(forGame);
-        forGame.setSize(445,640);
+        forGame.setSize(520,640);
         game.setSize(445, 629);
         game.setCurrentScore(Integer.valueOf(maximumScore.getText()));
         forGame.addMouseMotionListener(game);
@@ -277,6 +280,7 @@ public class Main_window extends javax.swing.JFrame {
         forGame.addMouseListener(game);
         forGame.addKeyListener(game);
         forGame.add(game);
+        forGame.isUndecorated();
         forGame.setVisible(true);
         forGame.setLocationRelativeTo(null);
         this.setVisible(false);
@@ -349,7 +353,7 @@ public class Main_window extends javax.swing.JFrame {
         maximumScore.setText(s);
     }
 
-    String getCurrentMaximumScore() {
+    private String getCurrentMaximumScore() {
         String maximum = "";
         try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/tetris_info/Score.txt"))) {
             maximum = reader.readLine();
@@ -358,6 +362,17 @@ public class Main_window extends javax.swing.JFrame {
         }
         return maximum;
     }
+
+    private String getCrystals() {
+        String cr = "";
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("D:/tetris_info/HowManyCrystals.txt"))) {
+            cr = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cr;
+    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton jButtonShop;
