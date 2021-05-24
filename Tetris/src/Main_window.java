@@ -268,8 +268,7 @@ public class Main_window extends javax.swing.JFrame {
     }
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {
-
-        getClip().close();
+        clip.close();
         JFrame forGame = new JFrame();
         Game_window game = new Game_window(forGame);
         forGame.setSize(500,603);
@@ -398,10 +397,7 @@ public class Main_window extends javax.swing.JFrame {
             }
 
     }
-
-    public Clip getClip() {
-        return clip;
-    }
+    
 
 
 
