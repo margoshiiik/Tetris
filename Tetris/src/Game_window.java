@@ -163,7 +163,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
 
         if(musicBounds.contains(mouseX,mouseY) && leftClick){
-            getClip().stop();
+            getClip().close();
             isMusicPlaying = !isMusicPlaying;
         }
 
@@ -290,7 +290,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
 
         g2d.setStroke(new BasicStroke(2));
-        g2d.setColor(new Color(82, 5, 5, 248));
+        g2d.setColor(new Color(0, 0, 0, 248));
 
         Graphics2D lines = (Graphics2D)g;
         lines.drawImage(ImageLoader.loadImage("crystal.png"), 315, 320, 40,40, null);
@@ -374,6 +374,12 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         gameOver = false;
         looper.start();
         playMusic();
+        while (gameOver = false){
+            if(!clip.isRunning()){
+                clip.setFramePosition(0);
+                clip.start();
+            }
+        }
     }
 
     public void stopGame(){
@@ -471,7 +477,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
     public void playMusic() {
         try {
-            File soundFile = new File("D:/tetris_info/Queen.wav");
+            File soundFile = new File("D:/tetris_info/default_music.wav");
 
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
 
@@ -519,5 +525,3 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
 
 }
-
-
