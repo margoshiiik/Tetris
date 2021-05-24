@@ -27,7 +27,7 @@ public class Shape {
 
     private int deltaX;
 
-    private Game_window game_window;
+    private Game_window game_window;//
 
     private boolean collision = false, moveX = false;
 
