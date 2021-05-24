@@ -84,7 +84,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
     public Game_window(JFrame frame){
         blocks = ImageLoader.loadImage("tiles.png");
 
-        music = ImageLoader.loadImage("compact-disc.png");
+        music = ImageLoader.loadImage("stop.png");
 
         background = ImageLoader.loadImage("background.jpg");
         pause = ImageLoader.loadImage("pause.png");
