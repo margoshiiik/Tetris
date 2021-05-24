@@ -546,6 +546,7 @@ public class Shop_window extends javax.swing.JFrame {
     }
 
     private void jButtonBackMouseClicked(java.awt.event.MouseEvent evt) {
+        main.setVisible(true);
         this.dispose();
     }
 

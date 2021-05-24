@@ -303,6 +303,7 @@ public class Main_window extends javax.swing.JFrame {
         shopWindow.pack();
         shopWindow.setLocationRelativeTo(null);
         shopWindow.setMainWindow(this);
+        this.setVisible(false);
     }
 
 
