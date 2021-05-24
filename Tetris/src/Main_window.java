@@ -269,10 +269,10 @@ public class Main_window extends javax.swing.JFrame {
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {
 
-
+        getClip().close();
         JFrame forGame = new JFrame();
         Game_window game = new Game_window(forGame);
-        forGame.setSize(520,640);
+        forGame.setSize(500,603);
         game.setSize(445, 629);
         game.setCurrentScore(Integer.valueOf(maximumScore.getText()));
         forGame.addMouseMotionListener(game);
@@ -280,7 +280,7 @@ public class Main_window extends javax.swing.JFrame {
         forGame.addMouseListener(game);
         forGame.addKeyListener(game);
         forGame.add(game);
-        forGame.isUndecorated();
+        forGame.setUndecorated(true);
         forGame.setVisible(true);
         forGame.setLocationRelativeTo(null);
         this.setVisible(false);
@@ -340,7 +340,9 @@ public class Main_window extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main_window().setVisible(true);
+                Main_window main_window = new Main_window();
+                main_window.setVisible(true);
+                main_window.playMusic();
             }
         });
     }
@@ -372,6 +374,35 @@ public class Main_window extends javax.swing.JFrame {
         }
         return cr;
     }
+
+    public void playMusic() {
+            try {
+                File soundFile = new File("D:/tetris_info/main_music.wav");
+
+                AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+
+                clip = AudioSystem.getClip();
+
+                clip.open(ais);
+
+                clip.setFramePosition(0);
+
+                clip.start();
+
+            } catch (IOException exc) {
+                exc.printStackTrace();
+            } catch (UnsupportedAudioFileException exc) {
+                exc.printStackTrace();
+            } catch (LineUnavailableException exc) {
+                exc.printStackTrace();
+            }
+
+    }
+
+    public Clip getClip() {
+        return clip;
+    }
+
 
 
     // Variables declaration - do not modify
