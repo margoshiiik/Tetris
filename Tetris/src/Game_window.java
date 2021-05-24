@@ -157,13 +157,13 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         }
 
         if(refreshBounds.contains(mouseX, mouseY) && leftClick ){
-            getClip().close();
+            clip.close();
             startGame();
         }
 
 
         if(musicBounds.contains(mouseX,mouseY) && leftClick){
-            getClip().close();
+            clip.close();
             isMusicPlaying = !isMusicPlaying;
         }
 
@@ -172,15 +172,16 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         }
 
         if(backToMenu.contains(mouseX,mouseY) && leftClick && isTrue){
-            getClip().close();
+            clip.close();
 
             this.getFrame().setVisible(false);
             this.setVisible(false);
 
-            isTrue = false;
+                isTrue = false;
                 Main_window main_window = new Main_window();
                 main_window.setLocationRelativeTo(null);
                 main_window.setVisible(true);
+                main_window.playMusic();
         }
 
         if(gamePaused || gameOver)
@@ -211,6 +212,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
             }
         }
+
         for(int row = 0; row < nextShape.getCoords().length; row ++)
         {
             for(int col = 0; col < nextShape.getCoords()[0].length; col ++)
@@ -488,6 +490,8 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
             clip.setFramePosition(0);
             clip.start();
 
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+
         } catch (IOException  exc) {
             exc.printStackTrace();
         } catch (UnsupportedAudioFileException exc) {
@@ -525,3 +529,4 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
 
 }
+
