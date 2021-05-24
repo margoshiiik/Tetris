@@ -157,13 +157,13 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         }
 
         if(refreshBounds.contains(mouseX, mouseY) && leftClick ){
-            getClip().close();
+            clip.close();
             startGame();
         }
 
 
         if(musicBounds.contains(mouseX,mouseY) && leftClick){
-            getClip().stop();
+            clip.close();
             isMusicPlaying = !isMusicPlaying;
         }
 
@@ -172,15 +172,16 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         }
 
         if(backToMenu.contains(mouseX,mouseY) && leftClick && isTrue){
-            getClip().close();
+            clip.close();
 
             this.getFrame().setVisible(false);
             this.setVisible(false);
 
             isTrue = false;
-                Main_window main_window = new Main_window();
-                main_window.setLocationRelativeTo(null);
-                main_window.setVisible(true);
+            Main_window main_window = new Main_window();
+            main_window.setLocationRelativeTo(null);
+            main_window.setVisible(true);
+            main_window.playMusic();
         }
 
         if(gamePaused || gameOver)
@@ -211,6 +212,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
             }
         }
+
         for(int row = 0; row < nextShape.getCoords().length; row ++)
         {
             for(int col = 0; col < nextShape.getCoords()[0].length; col ++)
@@ -290,7 +292,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
 
         g2d.setStroke(new BasicStroke(2));
-        g2d.setColor(new Color(82, 5, 5, 248));
+        g2d.setColor(new Color(0, 0, 0, 248));
 
         Graphics2D lines = (Graphics2D)g;
         lines.drawImage(ImageLoader.loadImage("crystal.png"), 315, 320, 40,40, null);
@@ -374,6 +376,12 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
         gameOver = false;
         looper.start();
         playMusic();
+        while (gameOver = false){
+            if(!clip.isRunning()){
+                clip.setFramePosition(0);
+                clip.start();
+            }
+        }
     }
 
     public void stopGame(){
@@ -471,7 +479,7 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
     public void playMusic() {
         try {
-            File soundFile = new File("D:/tetris_info/Queen.wav");
+            File soundFile = new File("D:/tetris_info/default_music.wav");
 
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
 
@@ -481,6 +489,8 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
             clip.setFramePosition(0);
             clip.start();
+
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
 
         } catch (IOException  exc) {
             exc.printStackTrace();
@@ -519,5 +529,3 @@ public class Game_window extends JPanel implements KeyListener, MouseListener, M
 
 
 }
-
-

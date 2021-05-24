@@ -1,4 +1,3 @@
-
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -219,6 +218,7 @@ public class Lose_window extends javax.swing.JFrame {
         Main_window main_window = new Main_window();
         main_window.setLocationRelativeTo(null);
         main_window.setVisible(true);
+        main_window.playMusic();
     }
 
     private void jButtonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {

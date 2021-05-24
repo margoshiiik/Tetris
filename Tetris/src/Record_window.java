@@ -5,6 +5,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /*
@@ -223,6 +230,7 @@ public class Record_window extends javax.swing.JFrame {
         Main_window main_window = new Main_window();
         main_window.setLocationRelativeTo(null);
         main_window.setVisible(true);
+        main_window.playMusic();
     }
 
     private void jButtonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +279,7 @@ public class Record_window extends javax.swing.JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-         return currentScore;
+        return currentScore;
     }
 
 
