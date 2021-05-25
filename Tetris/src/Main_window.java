@@ -42,12 +42,27 @@ public class Main_window extends javax.swing.JFrame {
     private void initComponents() {
 
         BufferedImage crystal = null;
+        BufferedImage sound = null;
+        BufferedImage no_sound = null;
         crystal = ImageLoader.loadImage("crystal.png");
+        try {
+            sound = ImageIO.read(new File("D:\\ideaProjects\\Tetris_game\\Tetris\\Tetris\\src\\audio.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            no_sound = ImageIO.read(new File("D:\\ideaProjects\\Tetris_game\\Tetris\\Tetris\\src\\no_sound.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         jPanel1 = new javax.swing.JPanel();
         jLabelСloseMouseClicked = new javax.swing.JLabel();
         jLabelMinMouseClicked = new javax.swing.JLabel();
         jLabelTetris = new javax.swing.JLabel();
+        iconSound = new javax.swing.JLabel();
+        iconNoSound = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelMaximumScore = new javax.swing.JLabel();
         maximumScore = new javax.swing.JLabel();
@@ -58,6 +73,10 @@ public class Main_window extends javax.swing.JFrame {
         jButtonShop = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+
+        iconSound.setIcon(new ImageIcon(sound));
+        iconNoSound.setIcon(new ImageIcon(no_sound));
+        iconNoSound.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 155, 203));
@@ -89,12 +108,28 @@ public class Main_window extends javax.swing.JFrame {
         jLabelTetris.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTetris.setText("Tetris");
 
+        iconSound.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconSoundMouseClicked(evt);
+            }
+        });
+
+        iconNoSound.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconNoSoundMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(26, 26, 26)
+                                .addComponent(iconNoSound, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(iconSound, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelTetris, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(83, 83, 83)
                                 .addComponent(jLabelMinMouseClicked)
@@ -105,12 +140,19 @@ public class Main_window extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabelСloseMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabelMinMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabelTetris))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(19, 19, 19)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(iconNoSound, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                                                        .addComponent(iconSound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(jLabelСloseMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabelMinMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jLabelTetris))))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -289,6 +331,20 @@ public class Main_window extends javax.swing.JFrame {
 
     }
 
+    private void iconSoundMouseClicked(java.awt.event.MouseEvent evt) {
+        if(iconSound.isVisible()){
+            iconSound.setVisible(false);
+            iconNoSound.setVisible(true);
+        }
+    }
+
+    private void iconNoSoundMouseClicked(java.awt.event.MouseEvent evt) {
+        if(iconNoSound.isVisible()){
+            iconSound.setVisible(true);
+            iconNoSound.setVisible(false);
+        }
+    }
+
     private void jButtonSpeedActionPerformed(java.awt.event.ActionEvent evt) {
         Speed_window speedWindow = new Speed_window();
         speedWindow.setVisible(true);
@@ -414,6 +470,8 @@ public class Main_window extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify
+    private javax.swing.JLabel iconNoSound;
+    private javax.swing.JLabel iconSound;
     private javax.swing.JButton jButtonShop;
     private javax.swing.JButton jButtonSpeed;
     private javax.swing.JButton jButtonStart;
