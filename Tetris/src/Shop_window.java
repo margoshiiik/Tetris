@@ -111,9 +111,9 @@ public class Shop_window extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(164, Short.MAX_VALUE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelTetris, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83)
+                                .addGap(134, 134, 134)
                                 .addComponent(jLabelMinMouseClicked)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelСloseMouseClicked)
@@ -123,12 +123,14 @@ public class Shop_window extends javax.swing.JFrame {
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabelСloseMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabelMinMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabelTetris))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelСloseMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelMinMouseClicked, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelTetris)
+                                .addContainerGap())
         );
 
         jPanel3.setBackground(new java.awt.Color(10, 10, 74));
@@ -146,7 +148,7 @@ public class Shop_window extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(16, 16, 106));
 
-        jLabelMaximumScore.setFont(new java.awt.Font("Sitka Display", 0, 28)); // NOI18N
+        jLabelMaximumScore.setFont(new java.awt.Font("Sitka Display", 0, 32)); // NOI18N
         jLabelMaximumScore.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMaximumScore.setText("Shop");
 
@@ -167,9 +169,6 @@ public class Shop_window extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(16, 16, 106));
 
-
-
-
         jRadioButtonFlowery.setBackground(new java.awt.Color(16, 16, 106));
         jRadioButtonFlowery.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jRadioButtonFlowery.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,9 +178,6 @@ public class Shop_window extends javax.swing.JFrame {
                 jRadioButtonFloweryActionPerformed(evt);
             }
         });
-        radioButtonGroup.add(jRadioButtonFlowery);
-
-
 
         jRadioButtonDefault.setBackground(new java.awt.Color(16, 16, 106));
         jRadioButtonDefault.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
@@ -192,7 +188,6 @@ public class Shop_window extends javax.swing.JFrame {
                 jRadioButtonDefaultActionPerformed(evt);
             }
         });
-        radioButtonGroup.add(jRadioButtonDefault);
 
         jRadioButtonCloudy.setBackground(new java.awt.Color(16, 16, 106));
         jRadioButtonCloudy.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
@@ -203,8 +198,6 @@ public class Shop_window extends javax.swing.JFrame {
                 jRadioButtonCloudyActionPerformed(evt);
             }
         });
-        radioButtonGroup.add(jRadioButtonCloudy);
-
 
         jRadioButtonSpaceStation.setBackground(new java.awt.Color(16, 16, 106));
         jRadioButtonSpaceStation.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
@@ -215,7 +208,6 @@ public class Shop_window extends javax.swing.JFrame {
                 jRadioButtonSpaceActionPerformed(evt);
             }
         });
-        radioButtonGroup.add(jRadioButtonSpaceStation);
 
         jRadioButtonEden.setBackground(new java.awt.Color(16, 16, 106));
         jRadioButtonEden.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
@@ -226,7 +218,13 @@ public class Shop_window extends javax.swing.JFrame {
                 jRadioButtonEdenActionPerformed(evt);
             }
         });
+
+        radioButtonGroup.add(jRadioButtonFlowery);
+        radioButtonGroup.add(jRadioButtonDefault);
+        radioButtonGroup.add(jRadioButtonCloudy);
+        radioButtonGroup.add(jRadioButtonSpaceStation);
         radioButtonGroup.add(jRadioButtonEden);
+
 
         iconSpace.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -235,8 +233,6 @@ public class Shop_window extends javax.swing.JFrame {
         iconCloudy.setForeground(new java.awt.Color(255, 255, 255));
 
         iconDefault.setForeground(new java.awt.Color(255, 255, 255));
-
-
 
         jButton2.setBackground(new java.awt.Color(255, 0, 102));
         jButton2.setFont(new java.awt.Font("Sitka Display", 0, 14)); // NOI18N
@@ -333,7 +329,7 @@ public class Shop_window extends javax.swing.JFrame {
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(iconCloudy, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(iconFlowery, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 25, Short.MAX_VALUE)
+                                                .addGap(18, 51, Short.MAX_VALUE)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                                 .addComponent(jLabel2)
@@ -366,8 +362,7 @@ public class Shop_window extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addGap(21, 21, 21)
-                                                .addComponent(jRadioButtonDefault)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                .addComponent(jRadioButtonDefault))
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addGap(2, 2, 2)
                                                 .addComponent(iconDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -440,28 +435,29 @@ public class Shop_window extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabelMaximumScore)
-                                                .addGap(173, 173, 173))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(145, 145, 145))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18))))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(220, 220, 220)
+                                                .addComponent(jLabelMaximumScore))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(23, 23, 23)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(196, 196, 196))
         );
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabelMaximumScore)
-                                .addGap(14, 14, 14)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabelMaximumScore, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
