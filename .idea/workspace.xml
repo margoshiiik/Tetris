@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f21496b0-0fdf-4a6e-b0f8-922e8d1bc78e" name="Default Changelist" comment="^)">
+      <change afterPath="$PROJECT_DIR$/src/Buy_window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Not_enough_money.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shop_window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Unavailable_theme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/angel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/audio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloud_back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloud_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloud_mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloud_pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloud_refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloud_titles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/cloudy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/def_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/def_mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/def_pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/def_ref.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/ed_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/ed_mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/ed_pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/ed_ref.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/eden_titles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/eden_wall.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flow_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flow_mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flow_pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flow_ref.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flower_back.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flower_titles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/flower_wall.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/no_sound.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/planet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/space_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/space_mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/space_pause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/space_refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/space_titles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/space_wall.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/tetris.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Current speed.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Game_window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Game_window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Game_window$GameLooper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Game_window$GameLooper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Game_window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Game_window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Lose_window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Lose_window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Lose_window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Lose_window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Lose_window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Lose_window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Lose_window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Lose_window$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Lose_window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Lose_window$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Lose_window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Lose_window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main_window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Main_window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Pause.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Record_window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Record_window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Record_window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Record_window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Record_window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Record_window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Record_window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Record_window$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Record_window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Record_window$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Record_window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Record_window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/crystal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/lose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/tiles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/victory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Current speed.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game_window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lose_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lose_window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Queen.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Record_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Record_window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Score.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cloud_with_sun.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/cloud_with_sun.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crystal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/crystal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lose.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/lose.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pause.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/tiles.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/victory.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/victory.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1si4OyglrSl7cs4w5erO62Ze2dj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/image" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\Tetris\src\image" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java\Tetris\src\image" />
+      <recent name="D:\java\Tetris\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main_window">
+    <configuration name="Main_window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main_window" />
+      <module name="Tetris" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Window" />
+      <module name="Tetris" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main_window" />
+        <item itemvalue="Application.Window" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f21496b0-0fdf-4a6e-b0f8-922e8d1bc78e" name="Default Changelist" comment="" />
+      <created>1621342047843</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621342047843</updated>
+    </task>
+    <task id="LOCAL-00001" summary="^)">
+      <created>1621605277996</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1621605278017</updated>
+    </task>
+    <task id="LOCAL-00002" summary="^)">
+      <created>1621800840743</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621800840743</updated>
+    </task>
+    <task id="LOCAL-00003" summary="^)">
+      <created>1621854123563</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621854123563</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="^)" />
+    <option name="LAST_COMMIT_MESSAGE" value="^)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
+          <option name="timeStamp" value="9" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.awt.image.RasterFormatException" package="java.awt.image" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
